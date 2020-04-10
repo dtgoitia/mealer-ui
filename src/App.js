@@ -1,14 +1,15 @@
 import React from 'react';
 
 import { ApolloProvider } from '@apollo/react-hooks';
-import client from './createClient';
-import Test from './components/tests';
+import 'semantic-ui-css/semantic.min.css';
 
+import client from './createClient';
+import IngredientExplorer from './components/ingredients';
 
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Test/>
+      <IngredientExplorer/>
     </ApolloProvider>
   );
 }

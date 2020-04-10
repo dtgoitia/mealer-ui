@@ -1,0 +1,17 @@
+mutation createIngredient(
+  $name: String!
+  $unit: String!
+) {
+  createIngredient(
+    input: {
+      name: $name
+      unit: $unit
+    }
+  ) {
+    ingredient {
+      id
+      name
+      unit
+    }
+  }
+}

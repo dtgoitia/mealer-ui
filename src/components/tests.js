@@ -1,15 +1,15 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
-import GET_PLANS_QUERY from './../graphql/getPlans';
+import GET_INGREDIENTS_QUERY from '../graphql/getIngredients.js';
 import logo from './../logo.svg';
 import './../App.css';
 
 
 function Test() {
-  const { loading, error, data } = useQuery(GET_PLANS_QUERY);
+  const { loading, error, data } = useQuery(GET_INGREDIENTS_QUERY);
   if (loading) return <p>Loading...</p>;
-  if (!error) return <p>Error :(</p>;
+  if (error) return <p>Error :(</p>;
 
   return (
     <div className="App">
