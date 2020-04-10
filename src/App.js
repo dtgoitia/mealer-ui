@@ -1,16 +1,38 @@
 import React from 'react';
-
 import { ApolloProvider } from '@apollo/react-hooks';
 import 'semantic-ui-css/semantic.min.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useParams,
+} from "react-router-dom";
 
 import client from './createClient';
 import IngredientExplorer from './components/ingredients';
 
+function IngredientEditor() {
+  let { ingredientId } = useParams();
+  return <div>Ingredient #{ingredientId}!!</div>;
+}
+
 function App() {
   return (
-    <ApolloProvider client={client}>
-      <IngredientExplorer/>
-    </ApolloProvider>
+    <Router>
+      <ApolloProvider client={client}>
+        <Switch>
+          <Route exact path="/">
+            <IngredientExplorer/>
+          </Route>
+          <Route exact path="/ingredients">
+            <IngredientExplorer/>
+          </Route>
+          <Route path="/ingredient/:ingredientId">
+            <IngredientEditor/>
+          </Route>
+        </Switch>
+      </ApolloProvider>
+    </Router>
   );
 }
 
