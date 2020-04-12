@@ -10,6 +10,7 @@ import {
 
 import client from './createClient';
 import IngredientExplorer from './components/ingredients';
+import RecipesExplorer from './components/recipes';
 
 function IngredientEditor() {
   let { ingredientId } = useParams();
@@ -29,6 +30,9 @@ function App() {
           </Route>
           <Route path="/ingredient/:ingredientId">
             <IngredientEditor/>
+          </Route>
+          <Route exact path="/recipes">
+            <RecipesExplorer/>
           </Route>
         </Switch>
       </ApolloProvider>
